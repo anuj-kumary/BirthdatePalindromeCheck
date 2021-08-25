@@ -1,9 +1,14 @@
 var bdayInput = document.querySelector('#txt-date');
 var showBtn = document.querySelector('#btn-check');
 var resultDiv = document.querySelector('#result');
+const sadFace = document.querySelector('.sad');
+const happyFace = document.querySelector('.happy');
+const loading = document.querySelector('.spinner')
 
 function clickHandler(e) {
     var bdayString = bdayInput.value;
+    happyFace.style.display = "none"
+    sadFace.style.display = "none"
 
     if (bdayString !== '') {
         var date = bdayString.split('-');
@@ -31,15 +36,36 @@ function clickHandler(e) {
         if (!isPalindrome) {
             const [ctr1, nextDate] = getNextPalindromeDate(date);
             const [ctr2, prevDate] = getPreviousPalindromeDate(date);
-
+            
             if (ctr1 > ctr2) {
-                resultDiv.innerText = `The nearest palindrome date is ${prevDate.day}-${prevDate.month}-${prevDate.year}, you missed by ${ctr2} days.`;
+                loading.style.display = 'block'
+                setTimeout(() => {
+                    loading.style.display = 'none'
+                    resultDiv.style.display = 'block'
+                    resultDiv.innerText = `The nearest palindrome date is ${prevDate.day}-${prevDate.month}-${prevDate.year}, you missed by ${ctr2} days.`;
+                    sadFace.style.display = "block"
+                },3000)
+
             } else {
-                resultDiv.innerText = `The nearest palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed by ${ctr1} days.`;
+                loading.style.display = 'block'
+                setTimeout(()=>{
+                    loading.style.display = 'none'
+                    resultDiv.style.display = 'block'
+                    resultDiv.innerText = `The nearest palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed by ${ctr1} days.`;
+                    sadFace.style.display = "block"
+                },3000)
+               
             }
 
         } else {
-            resultDiv.innerText = 'Yay! Your birthday is palindrome!';
+            loading.style.display = 'block'
+            setTimeout(() => {
+                loading.style.display = 'none'
+                resultDiv.style.display = 'block'
+                resultDiv.innerText = 'Yay! Your birthday is palindrome!';
+                happyFace.style.display = "block"
+            }, 3000)
+
         }
     }
 }
