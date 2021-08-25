@@ -14,7 +14,7 @@ body {
 
 main {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 2rem auto;
     padding: 1rem;
     display: flex;
@@ -24,8 +24,8 @@ main {
 
 input {
     margin: 1rem 0;
-    width: 70%;
-    padding: 0.5rem 1rem;
+    width: 55%;
+    padding: 0.7rem 1rem;
 }
 
 button {
@@ -49,12 +49,49 @@ button {
 
 .spinner {
     display: none;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     background-color: #6d28d9;
     margin: 100px auto;
     -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
     animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+.sad,
+.happy {
+    width: 40%;
+    height: 10%;
+    display: none;
+    margin-top: 2rem;
+}
+
+img {
+    width: 100%;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    margin: .5rem;
+    width: 98%;
+    text-align: center;
+    background-color: #6d28d9;
+    padding: 0.4rem 0;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+a{
+    padding: .2rem 1rem;
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+hr{
+    margin: .5rem;
+}
+p{
+    color: #fff;
 }
 
 @-webkit-keyframes sk-rotateplane {
@@ -88,14 +125,3 @@ button {
     }
 }
 
-.sad,
-.happy {
-    width: 40%;
-    height: 10%;
-    display: none;
-    margin-top: 2rem;
-}
-
-img {
-    width: 100%;
-}
